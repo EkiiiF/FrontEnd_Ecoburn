@@ -154,14 +154,14 @@ export default function BurningHistory() {
     <div className="space-y-6">
       <div>
         <h1 className="text-gray-900">Riwayat Pembakaran</h1>
-        <p className="text-gray-600 mt-1">View all waste burning records and operations</p>
+        <p className="text-gray-600 mt-1">Lihat semua catatan dan operasi pembakaran sampah</p>
       </div>
 
       {/* Filters */}
       <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
         <div className="flex items-center gap-2 mb-4">
           <Filter className="w-5 h-5 text-gray-600" />
-          <h3 className="text-gray-900">Filters</h3>
+          <h3 className="text-gray-900">Filter</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="space-y-2">
@@ -171,15 +171,15 @@ export default function BurningHistory() {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Status</SelectItem>
-                <SelectItem value="Completed">Completed</SelectItem>
-                <SelectItem value="In Progress">In Progress</SelectItem>
-                <SelectItem value="Failed">Failed</SelectItem>
+                <SelectItem value="all">Semua Status</SelectItem>
+                <SelectItem value="Completed">Selesai</SelectItem>
+                <SelectItem value="In Progress">Sedang Berlangsung</SelectItem>
+                <SelectItem value="Failed">Gagal</SelectItem>
               </SelectContent>
             </Select>
           </div>
           <div className="space-y-2">
-            <Label>Date From</Label>
+            <Label>Dari Tangggal</Label>
             <div className="relative">
               <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               <Input
@@ -191,7 +191,7 @@ export default function BurningHistory() {
             </div>
           </div>
           <div className="space-y-2">
-            <Label>Date To</Label>
+            <Label>Sampai Tanggal</Label>
             <div className="relative">
               <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               <Input
@@ -208,17 +208,17 @@ export default function BurningHistory() {
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
-          <p className="text-sm text-gray-600">Total Burns</p>
+          <p className="text-sm text-gray-600">Total Pembakaran</p>
           <p className="mt-2 text-gray-900">{filteredRecords.length}</p>
         </Card>
         <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
-          <p className="text-sm text-gray-600">Completed</p>
+          <p className="text-sm text-gray-600">Selesai</p>
           <p className="mt-2 text-[#3BAA5C]">
             {filteredRecords.filter((r) => r.status === 'Completed').length}
           </p>
         </Card>
         <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
-          <p className="text-sm text-gray-600">Failed</p>
+          <p className="text-sm text-gray-600">Gagal</p>
           <p className="mt-2 text-red-600">
             {filteredRecords.filter((r) => r.status === 'Failed').length}
           </p>
@@ -238,12 +238,10 @@ export default function BurningHistory() {
             <TableHeader>
               <TableRow>
                 <TableHead>ID</TableHead>
-                <TableHead>Date</TableHead>
+                <TableHead>Tanggal</TableHead>
                 <TableHead>Time</TableHead>
-                <TableHead>Waste Type</TableHead>
+                <TableHead>Tipe Pembakaran</TableHead>
                 <TableHead>Volume (kg)</TableHead>
-                <TableHead>Temperature (°C)</TableHead>
-                <TableHead>Duration (min)</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Operator</TableHead>
               </TableRow>
@@ -256,8 +254,6 @@ export default function BurningHistory() {
                   <TableCell>{record.time}</TableCell>
                   <TableCell>{record.wasteType}</TableCell>
                   <TableCell>{record.volume}</TableCell>
-                  <TableCell>{record.temperature}</TableCell>
-                  <TableCell>{record.duration}</TableCell>
                   <TableCell>
                     <Badge className={getStatusColor(record.status)}>{record.status}</Badge>
                   </TableCell>

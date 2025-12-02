@@ -137,26 +137,26 @@ export default function MemberManagement() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-gray-900">Member Management</h1>
-          <p className="text-gray-600 mt-1">Manage your subscribers and memberships</p>
+          <h1 className="text-gray-900">Manajemen Anggota</h1>
+          <p className="text-gray-600 mt-1">Kelola pelanggan dan keanggotaan Anda</p>
         </div>
         <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
           <DialogTrigger asChild>
             <Button className="bg-[#3BAA5C] hover:bg-[#329450]">
               <Plus className="w-4 h-4 mr-2" />
-              Add Member
+              Tambah Anggota
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-md">
             <DialogHeader>
-              <DialogTitle>Add New Member</DialogTitle>
+              <DialogTitle>Tambah Anggota Baru</DialogTitle>
               <DialogDescription>
-                Fill in the member details and select a subscription plan.
+                Isi detail anggota dan pilih paket langganan.
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
-                <Label htmlFor="name">Full Name</Label>
+                <Label htmlFor="name">Nama Lengkap</Label>
                 <Input
                   id="name"
                   placeholder="John Doe"
@@ -175,16 +175,16 @@ export default function MemberManagement() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="phone">Phone</Label>
+                <Label htmlFor="phone">Nomor Telephon</Label>
                 <Input
                   id="phone"
-                  placeholder="+1 234-567-8900"
+                  placeholder="+62 123-456-789"
                   value={newMember.phone}
                   onChange={(e) => setNewMember({ ...newMember, phone: e.target.value })}
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="subscription">Subscription Plan</Label>
+                <Label htmlFor="subscription">Paket Langganan</Label>
                 <Select
                   value={newMember.subscription}
                   onValueChange={(value) => setNewMember({ ...newMember, subscription: value })}
@@ -193,22 +193,21 @@ export default function MemberManagement() {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Basic">Basic</SelectItem>
+                    <SelectItem value="Basic">Dasar</SelectItem>
                     <SelectItem value="Premium">Premium</SelectItem>
-                    <SelectItem value="Enterprise">Enterprise</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
             <div className="flex justify-end gap-3">
               <Button variant="outline" onClick={() => setIsAddDialogOpen(false)}>
-                Cancel
+                Batal
               </Button>
               <Button
                 onClick={handleAddMember}
                 className="bg-[#3BAA5C] hover:bg-[#329450]"
               >
-                Add Member
+                Tambah Anggota
               </Button>
             </div>
           </DialogContent>
@@ -220,7 +219,7 @@ export default function MemberManagement() {
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
           <Input
-            placeholder="Search members by name or email..."
+            placeholder="Cari anggota berdasarkan nama atau email..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10"
@@ -234,13 +233,13 @@ export default function MemberManagement() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Name</TableHead>
+                <TableHead>Nama</TableHead>
                 <TableHead>Email</TableHead>
-                <TableHead>Phone</TableHead>
-                <TableHead>Subscription</TableHead>
+                <TableHead>Nomor Telephon</TableHead>
+                <TableHead>Langganan</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead>Join Date</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
+                <TableHead>Tanggal Bergabung</TableHead>
+                <TableHead className="text-right">Aksi</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

@@ -4,7 +4,7 @@ import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Card } from '../ui/card';
-import { Leaf, Mail, Lock, User, Building } from 'lucide-react';
+import { Leaf, Mail, Lock, User, Building, Eye, EyeOff } from 'lucide-react';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -15,6 +15,9 @@ export default function Register() {
     password: '',
     confirmPassword: '',
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,8 +35,15 @@ export default function Register() {
     <div className="min-h-screen bg-gradient-to-br from-[#3BAA5C]/10 via-white to-[#3BAA5C]/5 flex items-center justify-center p-6">
       <Card className="w-full max-w-md p-8 rounded-2xl shadow-lg border border-gray-200">
         <div className="flex flex-col items-center mb-8">
-          <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-[#3BAA5C] mb-4">
+          {/* <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-[#3BAA5C] mb-4">
             <Leaf className="w-8 h-8 text-white" />
+          </div> */}
+          <div className="flex items-center justify-center w-[120px] h-[120px] mb-4">
+              <img 
+                src="/EcoBurn_Logo.svg"
+                alt="EcoBurn Logo"
+                className="w-full h-full object-contain"
+              />
           </div>
           <h1 className="text-gray-900 text-center">Buat Akun</h1>
           <p className="text-gray-600 text-center mt-2">Gabung Sistem Monitoring EcoBurn</p>
@@ -98,13 +108,21 @@ export default function Register() {
               <Input
                 id="password"
                 name="password"
-                type="password"
+                // type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="••••••••"
                 value={formData.password}
                 onChange={handleChange}
                 className="pl-10 rounded-lg"
                 required
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+              </button>
             </div>
           </div>
 
@@ -115,26 +133,34 @@ export default function Register() {
               <Input
                 id="confirmPassword"
                 name="confirmPassword"
-                type="password"
+                // type="password"
+                type={showConfirmPassword ? "text" : "password"}
                 placeholder="••••••••"
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 className="pl-10 rounded-lg"
                 required
               />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                </button>
             </div>
           </div>
 
           <div className="flex items-start gap-2">
             <input type="checkbox" className="mt-1 rounded border-gray-300" required />
             <span className="text-sm text-gray-600">
-              I agree to the{' '}
+              Saya menyetujui{' '}
               <Link to="#" className="text-[#3BAA5C] hover:underline">
-                Terms of Service
+                Ketentuan Layanan
               </Link>{' '}
-              and{' '}
+              dan{' '}
               <Link to="#" className="text-[#3BAA5C] hover:underline">
-                Privacy Policy
+                Kebijakan Privasi
               </Link>
             </span>
           </div>
@@ -144,9 +170,9 @@ export default function Register() {
           </Button>
 
           <p className="text-center text-sm text-gray-600">
-            Already have an account?{' '}
+            Sudah Punya Akun?{' '}
             <Link to="/login" className="text-[#3BAA5C] hover:underline">
-              Sign in
+              Masuk
             </Link>
           </p>
         </form>

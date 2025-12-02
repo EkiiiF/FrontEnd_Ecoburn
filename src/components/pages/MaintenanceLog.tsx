@@ -37,7 +37,7 @@ const initialRecords: MaintenanceRecord[] = [
   {
     id: 1,
     date: '2024-11-26',
-    equipment: 'Primary Incinerator',
+    equipment: 'Insinerator Utama',
     type: 'Routine',
     status: 'Completed',
     technician: 'John Smith',
@@ -178,35 +178,35 @@ export default function MaintenanceLog() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-gray-900">Maintenance Log</h1>
-          <p className="text-gray-600 mt-1">Track all maintenance activities and schedules</p>
+          <h1 className="text-gray-900">Perawatan</h1>
+          <p className="text-gray-600 mt-1">Lacak semua aktivitas dan jadwal pemeliharaan</p>
         </div>
         <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
           <DialogTrigger asChild>
             <Button className="bg-[#3BAA5C] hover:bg-[#329450]">
               <Plus className="w-4 h-4 mr-2" />
-              Add Maintenance
+              Tambah Perawatan
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-md">
             <DialogHeader>
-              <DialogTitle>Add Maintenance Record</DialogTitle>
+              <DialogTitle>Tambah Catatan Perawatan</DialogTitle>
               <DialogDescription>
-                Schedule or log a maintenance activity for the system.
+                Jadwalkan atau catat aktivitas pemeliharaan untuk sistem.
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
-                <Label htmlFor="equipment">Equipment</Label>
+                <Label htmlFor="equipment">Peralatan</Label>
                 <Input
                   id="equipment"
-                  placeholder="e.g., Primary Incinerator"
+                  placeholder="e.g., Insinerator Utama"
                   value={newRecord.equipment}
                   onChange={(e) => setNewRecord({ ...newRecord, equipment: e.target.value })}
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="type">Maintenance Type</Label>
+                <Label htmlFor="type">Tipe Perawatan</Label>
                 <Select
                   value={newRecord.type}
                   onValueChange={(value) => setNewRecord({ ...newRecord, type: value })}
@@ -215,23 +215,22 @@ export default function MaintenanceLog() {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Routine">Routine</SelectItem>
-                    <SelectItem value="Preventive">Preventive</SelectItem>
-                    <SelectItem value="Emergency">Emergency</SelectItem>
+                    <SelectItem value="Routine">Rutinitas</SelectItem>
+                    <SelectItem value="Emergency">Darurat</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="technician">Technician</Label>
+                <Label htmlFor="technician">Teknisi</Label>
                 <Input
                   id="technician"
-                  placeholder="Assigned technician"
+                  placeholder="Teknisi yang ditugaskan"
                   value={newRecord.technician}
                   onChange={(e) => setNewRecord({ ...newRecord, technician: e.target.value })}
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="date">Date</Label>
+                <Label htmlFor="date">Tanggal</Label>
                 <Input
                   id="date"
                   type="date"
@@ -240,7 +239,7 @@ export default function MaintenanceLog() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="cost">Estimated Cost ($)</Label>
+                <Label htmlFor="cost">Estimasi Biaya ($)</Label>
                 <Input
                   id="cost"
                   type="number"
@@ -250,10 +249,10 @@ export default function MaintenanceLog() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="description">Description</Label>
+                <Label htmlFor="description">Deskripsi</Label>
                 <Textarea
                   id="description"
-                  placeholder="Describe the maintenance activity..."
+                  placeholder="Deskripsi aktivitas pemeliharaan..."
                   value={newRecord.description}
                   onChange={(e) => setNewRecord({ ...newRecord, description: e.target.value })}
                   rows={3}
@@ -262,13 +261,13 @@ export default function MaintenanceLog() {
             </div>
             <div className="flex justify-end gap-3">
               <Button variant="outline" onClick={() => setIsAddDialogOpen(false)}>
-                Cancel
+                Batal
               </Button>
               <Button
                 onClick={handleAddRecord}
                 className="bg-[#3BAA5C] hover:bg-[#329450]"
               >
-                Add Record
+                Tambah Catatan
               </Button>
             </div>
           </DialogContent>
@@ -278,20 +277,20 @@ export default function MaintenanceLog() {
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
-          <p className="text-sm text-gray-600">Total Records</p>
+          <p className="text-sm text-gray-600">Total Catatan</p>
           <p className="mt-2 text-gray-900">{records.length}</p>
         </Card>
         <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
-          <p className="text-sm text-gray-600">Completed</p>
+          <p className="text-sm text-gray-600">Selesai</p>
           <p className="mt-2 text-[#3BAA5C]">{completedCount}</p>
         </Card>
         <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
-          <p className="text-sm text-gray-600">Scheduled</p>
+          <p className="text-sm text-gray-600">Dijadwalkan</p>
           <p className="mt-2 text-blue-600">{scheduledCount}</p>
         </Card>
         <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
-          <p className="text-sm text-gray-600">Total Cost</p>
-          <p className="mt-2 text-gray-900">${totalCost.toLocaleString()}</p>
+          <p className="text-sm text-gray-600">Total Biaya</p>
+          <p className="mt-2 text-gray-900">Rp. {totalCost.toLocaleString()}</p>
         </Card>
       </div>
 
@@ -321,14 +320,14 @@ export default function MaintenanceLog() {
                       <Calendar className="w-4 h-4" />
                       {record.date}
                     </span>
-                    <span>Technician: {record.technician}</span>
+                    <span>Teknisi: {record.technician}</span>
                   </div>
                 </div>
               </div>
               <div className="flex items-center gap-4 lg:flex-col lg:items-end">
                 <div className="text-right">
-                  <p className="text-sm text-gray-600">Cost</p>
-                  <p className="text-gray-900">${record.cost}</p>
+                  <p className="text-sm text-gray-600">Biaya</p>
+                  <p className="text-gray-900">Rp. {record.cost}</p>
                 </div>
               </div>
             </div>

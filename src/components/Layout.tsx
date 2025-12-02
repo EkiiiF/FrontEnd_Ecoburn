@@ -13,6 +13,7 @@ import { Button } from './ui/button';
 import { useState } from 'react';
 import { Outlet } from "react-router-dom";
 
+
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Manajemen Anggota', href: '/members', icon: Users },
@@ -31,9 +32,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <aside className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
         <div className="flex flex-col flex-grow bg-white border-r border-gray-200">
           <div className="flex items-center gap-2 px-6 py-6 border-b border-gray-200">
-            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#3BAA5C]">
+            {/* <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#3BAA5C]">
               <Leaf className="w-6 h-6 text-white" />
+            </div> */}
+            <div className="flex items-center justify-center w-20 h-10">
+              <img 
+                src="/EcoBurn_Logo.svg"
+                alt="EcoBurn Logo"
+                className="w-50 h-50 object-contain"
+              />
             </div>
+
             <div>
               <h1 className="text-gray-900">EcoBurn</h1>
               <p className="text-sm text-gray-500">Sistem Monitoring</p>
@@ -65,7 +74,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               onClick={() => window.location.href = '/login'}
             >
               <LogOut className="w-5 h-5" />
-              Logout
+              Keluar
             </Button>
           </div>
         </div>
@@ -74,12 +83,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Mobile sidebar */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
-          <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setSidebarOpen(false)} />
+          <div className="fixed inset-0 backdrop-blur-sm bg-white/10" onClick={() => setSidebarOpen(false)} />
           <div className="fixed inset-y-0 left-0 flex w-64 flex-col bg-white">
             <div className="flex items-center gap-2 px-6 py-6 border-b border-gray-200">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#3BAA5C]">
+              {/* <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#3BAA5C]">
                 <Leaf className="w-6 h-6 text-white" />
+              </div> */}
+              <div className="flex items-center justify-center w-20 h-10">
+                <img 
+                  src="/EcoBurn_Logo.svg"
+                  alt="EcoBurn Logo"
+                  className="w-50 h-50 object-contain"
+                />
               </div>
+
               <div>
                 <h1 className="text-gray-900">EcoBurn</h1>
                 <p className="text-sm text-gray-500">Sistem Monitoring</p>
@@ -112,7 +129,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 onClick={() => window.location.href = '/login'}
               >
                 <LogOut className="w-5 h-5" />
-                Logout
+                Keluar
               </Button>
             </div>
           </div>

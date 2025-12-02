@@ -90,24 +90,24 @@ export default function Dashboard() {
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <StatCard
-          title="Total Waste Processed"
+          title="Total Limbah yang Diproses"
           value="45.2 tons"
           icon={Trash2}
-          trend="+12.5% from last month"
+          trend="+12.5% dari bulan lalu"
           trendUp={true}
         />
         <StatCard
-          title="Total Revenue"
+          title="Total Pendapatan"
           value="$28,450"
           icon={DollarSign}
-          trend="+8.3% from last month"
+          trend="+8.3% dari bulan lalu"
           trendUp={true}
         />
         <StatCard
-          title="Active Subscribers"
+          title="Pelanggan Aktif"
           value="145"
           icon={Users}
-          trend="+5 new this month"
+          trend="+5 dari bulan lalu"
           trendUp={true}
         />
       </div>
@@ -116,8 +116,8 @@ export default function Dashboard() {
       <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
           <div>
-            <h2 className="text-gray-900">Waste Volume Statistics</h2>
-            <p className="text-sm text-gray-600 mt-1">Track waste processing over time</p>
+            <h2 className="text-gray-900">Statistik Volume Limbah</h2>
+            <p className="text-sm text-gray-600 mt-1">Lacak pengolahan limbah dari waktu ke waktu</p>
           </div>
           <div className="flex gap-2">
             <Button
@@ -126,7 +126,7 @@ export default function Dashboard() {
               onClick={() => setWasteFilter('daily')}
               className={wasteFilter === 'daily' ? 'bg-[#3BAA5C] hover:bg-[#329450]' : ''}
             >
-              Daily
+              Hari
             </Button>
             <Button
               size="sm"
@@ -134,7 +134,7 @@ export default function Dashboard() {
               onClick={() => setWasteFilter('weekly')}
               className={wasteFilter === 'weekly' ? 'bg-[#3BAA5C] hover:bg-[#329450]' : ''}
             >
-              Weekly
+              Minggu
             </Button>
             <Button
               size="sm"
@@ -142,7 +142,7 @@ export default function Dashboard() {
               onClick={() => setWasteFilter('monthly')}
               className={wasteFilter === 'monthly' ? 'bg-[#3BAA5C] hover:bg-[#329450]' : ''}
             >
-              Monthly
+              Bulan
             </Button>
           </div>
         </div>
@@ -170,8 +170,8 @@ export default function Dashboard() {
             <TrendingUp className="w-5 h-5 text-[#3BAA5C]" />
           </div>
           <div>
-            <h2 className="text-gray-900">Subscriber Growth Prediction</h2>
-            <p className="text-sm text-gray-600 mt-1">Projected subscriber count for next 6 months</p>
+            <h2 className="text-gray-900">Prediksi Pertumbuhan Pelanggan</h2>
+            <p className="text-sm text-gray-600 mt-1">Perkiraan jumlah pelanggan untuk 6 bulan ke depan</p>
           </div>
         </div>
         <ResponsiveContainer width="100%" height={300}>
@@ -194,7 +194,7 @@ export default function Dashboard() {
               strokeWidth={3}
               dot={{ fill: '#3BAA5C', r: 5 }}
               activeDot={{ r: 7 }}
-              name="Predicted Subscribers"
+              name="Perkiraan Pelanggan"
             />
           </LineChart>
         </ResponsiveContainer>
@@ -203,19 +203,19 @@ export default function Dashboard() {
       {/* Quick Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
-          <p className="text-sm text-gray-600">Today's Burns</p>
+          <p className="text-sm text-gray-600">Pembakaran Hari Ini</p>
           <p className="mt-2 text-gray-900">12</p>
         </Card>
         <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
-          <p className="text-sm text-gray-600">Avg. Burn Efficiency</p>
+          <p className="text-sm text-gray-600">Rata-rata Pembakaran</p>
           <p className="mt-2 text-gray-900">94.5%</p>
         </Card>
         <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
-          <p className="text-sm text-gray-600">Maintenance Due</p>
+          <p className="text-sm text-gray-600">Perawatan</p>
           <p className="mt-2 text-gray-900">3 items</p>
         </Card>
         <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
-          <p className="text-sm text-gray-600">System Uptime</p>
+          <p className="text-sm text-gray-600">Waktu Aktif Sistem</p>
           <p className="mt-2 text-gray-900">99.8%</p>
         </Card>
       </div>

@@ -30,27 +30,27 @@ const monthlyData = [
 ];
 
 const summaryStats = [
-  { label: 'Total Waste Processed', value: '168.6 tons', change: '+15.2%' },
-  { label: 'Total Revenue Generated', value: '$252,900', change: '+12.8%' },
-  { label: 'Total Burn Operations', value: '1,952', change: '+8.5%' },
-  { label: 'Average Efficiency', value: '94.3%', change: '+2.1%' },
+  { label: 'Total Limbah yang Diproses', value: '168.6 tons', change: '+15.2%' },
+  { label: 'Total Pendapatan yang Dihasilkan', value: '$252,900', change: '+12.8%' },
+  { label: 'Total Operasi Pembakaran', value: '1,952', change: '+8.5%' },
+  { label: 'Efisiensi Rata-rata', value: '94.3%', change: '+2.1%' },
 ];
 
 export default function Reports() {
   const handleExportPDF = () => {
-    alert('Exporting report as PDF...');
+    alert('Mengekspor laporan sebagai PDF...');
   };
 
   const handleExportExcel = () => {
-    alert('Exporting report as Excel...');
+    alert('Mengekspor laporan sebagai Excel...');
   };
 
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-gray-900">Reports</h1>
-          <p className="text-gray-600 mt-1">Comprehensive analytics and data exports</p>
+          <h1 className="text-gray-900">Laporan</h1>
+          <p className="text-gray-600 mt-1">Analitik menyeluruh dan ekspor data</p>
         </div>
         <div className="flex gap-3">
           <Button
@@ -59,14 +59,14 @@ export default function Reports() {
             onClick={handleExportExcel}
           >
             <FileSpreadsheet className="w-4 h-4" />
-            Export Excel
+            Unduh Excel
           </Button>
           <Button
             className="bg-[#3BAA5C] hover:bg-[#329450] gap-2"
             onClick={handleExportPDF}
           >
             <Download className="w-4 h-4" />
-            Export PDF
+            Unduh PDF
           </Button>
         </div>
       </div>
@@ -79,7 +79,7 @@ export default function Reports() {
               <div>
                 <p className="text-sm text-gray-600">{stat.label}</p>
                 <p className="mt-2 text-gray-900">{stat.value}</p>
-                <p className="text-sm text-[#3BAA5C] mt-2">{stat.change} from last year</p>
+                <p className="text-sm text-[#3BAA5C] mt-2">{stat.change} dari tahun lalu</p>
               </div>
               <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#3BAA5C]/10">
                 <FileText className="w-5 h-5 text-[#3BAA5C]" />
@@ -92,8 +92,8 @@ export default function Reports() {
       {/* Monthly Waste Processing Chart */}
       <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
         <div className="mb-6">
-          <h2 className="text-gray-900">Monthly Waste Processing</h2>
-          <p className="text-sm text-gray-600 mt-1">Total waste processed per month (kg)</p>
+          <h2 className="text-gray-900">Pengolahan Sampah Bulanan</h2>
+          <p className="text-sm text-gray-600 mt-1">Total limbah yang diproses per bulan (kg)</p>
         </div>
         <ResponsiveContainer width="100%" height={350}>
           <BarChart data={monthlyData}>
@@ -108,7 +108,7 @@ export default function Reports() {
               }}
             />
             <Legend />
-            <Bar dataKey="waste" fill="#3BAA5C" radius={[8, 8, 0, 0]} name="Waste (kg)" />
+            <Bar dataKey="waste" fill="#3BAA5C" radius={[8, 8, 0, 0]} name="Pembakaran (kg)" />
           </BarChart>
         </ResponsiveContainer>
       </Card>
@@ -116,8 +116,8 @@ export default function Reports() {
       {/* Monthly Revenue Chart */}
       <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
         <div className="mb-6">
-          <h2 className="text-gray-900">Monthly Revenue Trend</h2>
-          <p className="text-sm text-gray-600 mt-1">Revenue generated from operations ($)</p>
+          <h2 className="text-gray-900">Tren Pendapatan Bulanan</h2>
+          <p className="text-sm text-gray-600 mt-1">Pendapatan yang dihasilkan dari operasi (Rp)</p>
         </div>
         <ResponsiveContainer width="100%" height={350}>
           <LineChart data={monthlyData}>
@@ -139,7 +139,7 @@ export default function Reports() {
               strokeWidth={3}
               dot={{ fill: '#3BAA5C', r: 5 }}
               activeDot={{ r: 7 }}
-              name="Revenue ($)"
+              name="Pendapatan (Rp)"
             />
           </LineChart>
         </ResponsiveContainer>
@@ -148,8 +148,8 @@ export default function Reports() {
       {/* Monthly Operations Chart */}
       <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
         <div className="mb-6">
-          <h2 className="text-gray-900">Monthly Burn Operations</h2>
-          <p className="text-sm text-gray-600 mt-1">Number of burn operations per month</p>
+          <h2 className="text-gray-900">Operasi Pembakaran Bulanan</h2>
+          <p className="text-sm text-gray-600 mt-1">Jumlah operasi pembakaran per bulan</p>
         </div>
         <ResponsiveContainer width="100%" height={350}>
           <BarChart data={monthlyData}>
@@ -164,38 +164,37 @@ export default function Reports() {
               }}
             />
             <Legend />
-            <Bar dataKey="burns" fill="#2563eb" radius={[8, 8, 0, 0]} name="Operations" />
+            <Bar dataKey="burns" fill="#2563eb" radius={[8, 8, 0, 0]} name="Operasi" />
           </BarChart>
         </ResponsiveContainer>
       </Card>
 
       {/* Detailed Report Summary */}
       <Card className="p-6 rounded-xl shadow-sm border border-gray-200">
-        <h2 className="text-gray-900 mb-4">Year-End Summary Report</h2>
+        <h2 className="text-gray-900 mb-4">Laporan Ringkasan Akhir Tahun</h2>
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 bg-gray-50 rounded-lg">
-              <p className="text-sm text-gray-600">Peak Month (Waste)</p>
+              <p className="text-sm text-gray-600">Pada Bulan (Pembakaran)</p>
               <p className="mt-1 text-gray-900">December - 15,500 kg</p>
             </div>
             <div className="p-4 bg-gray-50 rounded-lg">
-              <p className="text-sm text-gray-600">Peak Month (Revenue)</p>
+              <p className="text-sm text-gray-600">Pada Bulan (Pendapatan)</p>
               <p className="mt-1 text-gray-900">December - $23,250</p>
             </div>
             <div className="p-4 bg-gray-50 rounded-lg">
-              <p className="text-sm text-gray-600">Average Monthly Waste</p>
+              <p className="text-sm text-gray-600">Rata-rata Pembakaran Bulanan</p>
               <p className="mt-1 text-gray-900">14,050 kg</p>
             </div>
             <div className="p-4 bg-gray-50 rounded-lg">
-              <p className="text-sm text-gray-600">Average Monthly Revenue</p>
+              <p className="text-sm text-gray-600">Rata-rata Pendapatan Bulanan</p>
               <p className="mt-1 text-gray-900">$21,075</p>
             </div>
           </div>
           <div className="p-4 bg-[#3BAA5C]/5 rounded-lg border border-[#3BAA5C]/20">
-            <p className="text-sm text-gray-600">System Performance</p>
+            <p className="text-sm text-gray-600">Performa Sistem</p>
             <p className="mt-1 text-gray-900">
-              The EcoBurn system maintained an excellent 94.3% average efficiency throughout the year,
-              with consistent growth in waste processing capacity and revenue generation.
+              Sistem EcoBurn mempertahankan efisiensi rata-rata yang sangat baik sebesar 94,3% sepanjang tahun, dengan pertumbuhan yang konsisten dalam kapasitas pengolahan limbah dan penghasilan.
             </p>
           </div>
         </div>
