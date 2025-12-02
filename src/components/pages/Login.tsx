@@ -31,7 +31,7 @@ export default function Login({ onLogin }: LoginProps) {
           </div> */}
           <div className="flex items-center justify-center w-[120px] h-[120px] mb-4">
               <img 
-                src="/EcoBurn_Logo.svg"
+                src="/EcoBurn_Logo.png"
                 alt="EcoBurn Logo"
                 className="w-full h-full object-contain"
               />

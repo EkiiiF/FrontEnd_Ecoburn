@@ -35,11 +35,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#3BAA5C]">
               <Leaf className="w-6 h-6 text-white" />
             </div> */}
-            <div className="flex items-center justify-center w-20 h-10">
+            <div className="flex items-center justify-center w-15 h-15">
               <img 
-                src="/EcoBurn_Logo.svg"
+                src="/EcoBurn_Logo.png"
                 alt="EcoBurn Logo"
-                className="w-50 h-50 object-contain"
+                className="w-20 h-20 object-contain"
               />
             </div>
 
@@ -89,11 +89,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               {/* <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#3BAA5C]">
                 <Leaf className="w-6 h-6 text-white" />
               </div> */}
-              <div className="flex items-center justify-center w-20 h-10">
+              <div className="flex items-center justify-center w-15 h-15">
                 <img 
-                  src="/EcoBurn_Logo.svg"
+                  src="/EcoBurn_Logo.png"
                   alt="EcoBurn Logo"
-                  className="w-50 h-50 object-contain"
+                  className="w-20 h-20 object-contain"
                 />
               </div>
 
